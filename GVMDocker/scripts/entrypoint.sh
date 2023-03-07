@@ -47,6 +47,7 @@ export CERTIFICATE_KEY=${CERTIFICATE_KEY:-none}
 export TZ=${TZ:-Etc/UTC}
 export DEBUG=${DEBUG:-N}
 export SSHD=${SSHD:-YES}
+export NEWDB=${NEWDB:-false}
 export DB_PASSWORD=${DB_PASSWORD:-none}
 export DB_PASSWORD_FILE=${DB_PASSWORD_FILE:-none}
 
