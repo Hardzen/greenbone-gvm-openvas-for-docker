@@ -305,7 +305,7 @@ sudo apt-get install -y --no-install-recommends \
     libnet1
 
 sudo -E python3 -m pip install --upgrade setuptools --no-warn-script-location
-python3 -m pip install python-gvm==v23.2.0
+python3 -m pip install python-gvm==$python_gvm
 
 #sudo python3 -m pip install --no-warn-script-location psutil
 
