@@ -70,4 +70,4 @@ python3-paho-mqtt
   yarnpkg
   zip
   git
-  libbsd
+  libbsd-dev
