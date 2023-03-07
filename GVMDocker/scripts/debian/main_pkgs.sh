@@ -270,7 +270,9 @@ sudo apt-get install -y --no-install-recommends \
 # Install optional dependencies for openvas-scanner
 sudo apt-get install -y \
     python3-impacket \
-    libsnmp-dev
+    libsnmp-dev \
+    libjson-glib-1.0-0 \
+    libjson-glib-1.0-common
 
 curl -sSL https://github.com/greenbone/openvas-scanner/archive/refs/tags/v${OPENVAS_SCANNER_VERSION}.tar.gz -o ${SOURCE_DIR}/openvas-scanner-${OPENVAS_SCANNER_VERSION}.tar.gz
 curl -sSL https://github.com/greenbone/openvas-scanner/releases/download/v${OPENVAS_SCANNER_VERSION}/openvas-scanner-${OPENVAS_SCANNER_VERSION}.tar.gz.asc -o ${SOURCE_DIR}/openvas-scanner-${OPENVAS_SCANNER_VERSION}.tar.gz.asc
