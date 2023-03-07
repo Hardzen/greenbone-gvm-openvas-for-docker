@@ -26,7 +26,7 @@ sudo apt-get install --no-install-recommends --assume-yes \
     python3-pip \
     gnupg \
     supervisor
-sudo -E python3 -m pip install --upgrade pip
+#sudo -E python3 -m pip install --upgrade pip
 
 curl -O https://www.greenbone.net/GBCommunitySigningKey.asc
 gpg --import <GBCommunitySigningKey.asc
@@ -332,7 +332,7 @@ sudo apt-get install -y --no-install-recommends \
     python3-lxml \
     python3-defusedxml \
     python3-paramiko
-#sudo -E python3 -m pip install --upgrade setuptools
+sudo -E python3 -m pip install --upgrade setuptools
 # Install for user
  python3 -m pip install --user gvm-tools
 
