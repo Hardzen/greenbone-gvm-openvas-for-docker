@@ -181,7 +181,7 @@ tar -C ${SOURCE_DIR} -xvzf ${SOURCE_DIR}/gsa-${GSA_VERSION}.tar.gz
 #curl -sSL https://github.com/greenbone/gsa/releases/download/v${GSA_VERSION}/gsa-node-modules-${GSA_VERSION}.tar.gz.asc -o ${SOURCE_DIR}/gsa-node-modules-${GSA_VERSION}.tar.gz.asc
 #gpg --verify ${SOURCE_DIR}/gsa-node-modules-${GSA_VERSION}.tar.gz.asc ${SOURCE_DIR}/gsa-node-modules-${GSA_VERSION}.tar.gz
 #tar -C ${SOURCE_DIR}/gsa-${GSA_VERSION}/gsa -xvzf ${SOURCE_DIR}/gsa-node-modules-${GSA_VERSION}.tar.gz
-
+sudo apt install -y nodejs yarn
 mkdir -p ${SOURCE_DIR}/gsa-${GSA_VERSION} && cd $_
 
 yarnpkg
