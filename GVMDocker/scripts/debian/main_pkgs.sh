@@ -216,7 +216,8 @@ yarnpkg cache clean
 
 sudo apt-get purge -y \
     nodejs \
-    yarnpkg
+    yarn
+    
 
 # Install required dependencies for openvas-smb
 #
@@ -256,6 +257,7 @@ sudo apt-get purge -y \
 # Install required dependencies for openvas-scanner
 sudo apt-get install -y --no-install-recommends \
     bison \
+    libjson-glib-1.0-0 \
     libglib2.0-dev \
     libgnutls28-dev \
     libgcrypt20-dev \
