@@ -26,7 +26,7 @@ sudo apt-get install --no-install-recommends --assume-yes \
     python3-pip \
     gnupg \
     supervisor
-sudo python3 -m pip install --upgrade pip
+sudo -E python3 -m pip install --upgrade pip
 
 curl -O https://www.greenbone.net/GBCommunitySigningKey.asc
 gpg --import <GBCommunitySigningKey.asc
