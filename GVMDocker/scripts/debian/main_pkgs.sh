@@ -27,8 +27,18 @@ sudo apt-get install --no-install-recommends --assume-yes \
     gnupg \
     supervisor
 sudo -E python3 -m pip install --upgrade pip
+export NODE_VERSION=node_14.x
+export KEYRING=/usr/share/keyrings/nodesource.gpg
+export DISTRIBUTION="bullseye"
 
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+echo "deb  https://deb.nodesource.com/$NODE_VERSION $DISTRIBUTION main" |  tee /etc/apt/sources.list.d/nodesource.list
+echo "deb-src https://deb.nodesource.com/$NODE_VERSION $DISTRIBUTION main" |  tee -a /etc/apt/sources.list.d/nodesource.list
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg |  apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" |  tee /etc/apt/sources.list.d/yarn.list
 curl -O https://www.greenbone.net/GBCommunitySigningKey.asc
+
 gpg --import <GBCommunitySigningKey.asc
 (
     echo 5
@@ -160,29 +170,6 @@ sudo apt-get install -y --no-install-recommends \
     libglib2.0-dev \
     libgnutls28-dev
 
-apt remove nodejs yarn -y 
-ls -l
-mkdir -p ${BUILD_DIR}/yarn && cd $_
-export NODE_VERSION=node_14.x
-export KEYRING=/usr/share/keyrings/nodesource.gpg
-export DISTRIBUTION="bullseye"
-
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor |  tee "$KEYRING" >/dev/null
-gpg --no-default-keyring --keyring "$KEYRING" --list-keys
-echo "deb [signed-by=$KEYRING] https://deb.nodesource.com/$NODE_VERSION $DISTRIBUTION main" |  tee /etc/apt/sources.list.d/nodesource.list
-echo "deb-src [signed-by=$KEYRING] https://deb.nodesource.com/$NODE_VERSION $DISTRIBUTION main" |  tee -a /etc/apt/sources.list.d/nodesource.list
-
-apt update
-apt install -y nodejs
-
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg |  apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" |  tee /etc/apt/sources.list.d/yarn.list
-
-apt update
-apt install -y yarn
-
-yarn 
-yarn build
 
 curl -sSL https://github.com/greenbone/gsa/archive/refs/tags/v${GSA_VERSION}.tar.gz -o ${SOURCE_DIR}/gsa-${GSA_VERSION}.tar.gz
 curl -sSL https://github.com/greenbone/gsa/releases/download/v${GSA_VERSION}/gsa-${GSA_VERSION}.tar.gz.asc -o ${SOURCE_DIR}/gsa-${GSA_VERSION}.tar.gz.asc
