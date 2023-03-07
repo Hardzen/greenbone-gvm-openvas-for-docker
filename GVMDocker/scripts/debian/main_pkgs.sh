@@ -305,7 +305,7 @@ sudo apt-get install -y --no-install-recommends \
     libnet1
 
 #sudo -E python3 -m pip install --upgrade setuptools --no-warn-script-location
-äpython3 -m pip install python-gvm==$python_gvm
+python3 -m pip install python-gvm==$PYTHON_GVM_VERSION
 
 #sudo python3 -m pip install --no-warn-script-location psutil
 
