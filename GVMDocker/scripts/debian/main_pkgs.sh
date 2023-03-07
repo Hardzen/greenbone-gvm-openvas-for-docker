@@ -26,7 +26,7 @@ sudo apt-get install --no-install-recommends --assume-yes \
     python3-pip \
     gnupg \
     supervisor
-#sudo -E python3 -m pip install --upgrade pip
+sudo -E python3 -m pip install --upgrade pip
 
 curl -O https://www.greenbone.net/GBCommunitySigningKey.asc
 gpg --import <GBCommunitySigningKey.asc
@@ -304,10 +304,10 @@ sudo apt-get install -y --no-install-recommends \
     python3-redis \
     libnet1
 
-#sudo -E python3 -m pip install --upgrade setuptools --no-warn-script-location
+sudo -E python3 -m pip install --upgrade setuptools --no-warn-script-location
 python3 -m pip install python-gvm==$PYTHON_GVM_VERSION
 
-#sudo python3 -m pip install --no-warn-script-location psutil
+sudo python3 -m pip install --no-warn-script-location psutil
 
 # Download and install ospd-openvas
 
