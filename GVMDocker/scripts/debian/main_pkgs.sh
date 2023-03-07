@@ -272,7 +272,8 @@ sudo apt-get install -y \
     python3-impacket \
     libsnmp-dev \
     libjson-glib-1.0-0 \
-    libjson-glib-1.0-common
+    libjson-glib-1.0-common \
+    libjson-glib-dev
 
 curl -sSL https://github.com/greenbone/openvas-scanner/archive/refs/tags/v${OPENVAS_SCANNER_VERSION}.tar.gz -o ${SOURCE_DIR}/openvas-scanner-${OPENVAS_SCANNER_VERSION}.tar.gz
 curl -sSL https://github.com/greenbone/openvas-scanner/releases/download/v${OPENVAS_SCANNER_VERSION}/openvas-scanner-${OPENVAS_SCANNER_VERSION}.tar.gz.asc -o ${SOURCE_DIR}/openvas-scanner-${OPENVAS_SCANNER_VERSION}.tar.gz.asc
@@ -412,7 +413,8 @@ sudo apt-get purge --auto-remove -y \
     nodejs \
     yarnpkg \
     graphviz-dev \
-    cmake
+    cmake \
+    libjson-glib-dev
 sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
 sudo apt-get clean all
 sudo apt-get -yq autoremove
