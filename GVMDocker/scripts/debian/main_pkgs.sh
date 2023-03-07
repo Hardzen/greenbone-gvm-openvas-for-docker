@@ -36,6 +36,9 @@ gpg --import <GBCommunitySigningKey.asc
     echo save
 ) | gpg --command-fd 0 --no-tty --no-greeting -q --edit-key "$(gpg --list-packets <GBCommunitySigningKey.asc | awk '$1=="keyid:"{print$2;exit}')" trust
 
+PACKAGES=$(cat /scripts/package-list)
+apt-get install -yq --no-install-recommends $PACKAGES
+
 # Install required dependencies for gvm-libs
 sudo apt-get install -y --no-install-recommends \
     libglib2.0-dev \
