@@ -197,14 +197,45 @@ if [ ! -f "/opt/database/.upgrade_to_21.4.0" ]; then
 	touch /opt/database/.upgrade_to_21.4.0
 fi
 
+DB=$(su -c "psql -tq --username=postgres --dbname=gvmd --command=\"select value from meta where name like 'database_version';\"" postgres)
+echo "Current GVMd database version is $DB"
+if [ $DB -lt 250 ]; then
+	echo "Extract feeds for 22.4"
+        cd /data
+        echo "Unpacking base feeds data from /usr/lib/var-lib.tar.xz"
+        tar xf /usr/lib/var-lib.tar.xz
+	date
+	echo "Groking the database so migration won't fail"
+	echo "This could take a while. (10-15 minutes). "
+	su -c "/usr/lib/postgresql/13/bin/psql gvmd < /opt/setup/scripts/21.4-to-22.4-prep.sql" postgres >> /opt/setup/db-restore.log
+	date
+	echo "Grock complete."
+	echo "Now the long part, migrating the databse."
+	su -c "gvmd --migrate" gvm
+	echo "Migration complete!!"
+	date
+else 
+	# Before migration, make sure the 21.04 tables are availabe incase this is an upgrade from 20.08
+	# But only if we didn't just delete most of these functions for the upgrade to 22.4
+	# This whole things can probably be removed, but just incase .....
+	echo "CREATE TABLE IF NOT EXISTS vt_severities (id SERIAL PRIMARY KEY,vt_oid text NOT NULL,type text NOT NULL, origin text,date integer,score double precision,value text);" >>  /opt/setup/dbupdate.sql
+	echo "SELECT create_index ('vt_severities_by_vt_oid','vt_severities', 'vt_oid');" >>   /opt/setup/dbupdate.sql
+	echo "ALTER TABLE vt_severities OWNER TO gvm;" >>  /opt/setup/dbupdate.sql
+	touch /usr/local/var/log/db-restore.log
+	chown postgres /usr/local/var/log/db-restore.log  /opt/setup/dbupdate.sql
+	su -c "/usr/lib/postgresql/13/bin/psql gvmd <  /opt/setup/dbupdate.sql " postgres >>  /opt/setup/db-restore.log
+	echo "Migrate the database if needed."
+	su -c "gvmd --migrate" gvm 
+fi
+
 if [ ! -d "/run/gvmd" ]; then
 	mkdir -p /run/gvmd
 	chown gvm:gvm -R /run/gvmd/
 	chmod 2775 /var/run/gvmd/
 fi
 
-echo "gvmd --migrate"
-su -c "gvmd --migrate" gvm
+#echo "gvmd --migrate"
+#su -c "gvmd --migrate" gvm
 
 if [ "$DB_PASSWORD_FILE" != "none" ] && [ -e "$DB_PASSWORD_FILE" ]; then
 	su -c "psql --dbname=gvmd --command=\"alter user gvm password '$(<"$DB_PASSWORD_FILE")';\"" postgres
