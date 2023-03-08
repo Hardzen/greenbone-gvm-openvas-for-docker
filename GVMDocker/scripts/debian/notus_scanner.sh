@@ -8,3 +8,4 @@ tar -C ${SOURCE_DIR} -xvzf ${SOURCE_DIR}/notus-scanner-${NOTUS_SCANNER_VERSION}.
 cd ${SOURCE_DIR}/notus-scanner-${NOTUS_SCANNER_VERSION}
 ls -l
 python3 -m pip install .
+apt remove libpopt-dev
