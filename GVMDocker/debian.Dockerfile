@@ -98,6 +98,7 @@ RUN ls -lahR /opt/setup/
 RUN /opt/setup/scripts/debian/prepare.sh
 RUN /opt/setup/scripts/debian/main_pkgs.sh
 RUN /opt/setup/scripts/debian/notus_scanner.sh
+RUN /opt/setup/scripts/debian/greenbone-feed-sync.sh
 
 #COPY report_formats/* /report_formats/
 
