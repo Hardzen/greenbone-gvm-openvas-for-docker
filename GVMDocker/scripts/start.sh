@@ -275,6 +275,9 @@ fi
 if  ! grep -qis  allow_anonymous /etc/mosquitto/mosquitto.conf; then  
         echo -e "listener 1883\nallow_anonymous true" >> /etc/mosquitto/mosquitto.conf
 fi
+if  ! grep -qis  mosquitto /etc/openvas/openvas.conf; then  
+	echo "mqtt_server_uri = mosquitto:1883" |  tee -a /etc/openvas/openvas.conf
+fi
 #############################
 # Remove leftover pid files #
 #############################
