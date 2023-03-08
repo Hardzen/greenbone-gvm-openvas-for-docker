@@ -11,6 +11,7 @@ ENV LANG=C.UTF-8
 COPY config /opt/setup/
 COPY scripts /opt/setup/scripts/
 RUN chmod -R +x /opt/setup/scripts/*.sh
+RUN chmod -R +x /opt/setup/scripts/debian/*.sh
 #RUN bash /opt/setup/debian/install-pkgs.sh
 
 # gvmd: v21.4.3
