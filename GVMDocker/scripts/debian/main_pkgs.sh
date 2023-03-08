@@ -427,7 +427,8 @@ sudo apt-get purge --auto-remove -y \
     yarnpkg \
     graphviz-dev \
     cmake \
-    libjson-glib-dev
+    libjson-glib-dev \
+    libical-dev
 
 sudo apt install libpaho-mqtt-dev
 sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
