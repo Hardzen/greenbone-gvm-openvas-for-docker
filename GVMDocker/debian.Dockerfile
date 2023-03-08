@@ -9,6 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8
 
 COPY config /opt/setup/
+RUN ls -al /opt/setup/config
 COPY scripts /opt/setup/scripts/
 RUN chmod -R +x /opt/setup/scripts/*.sh
 RUN chmod -R +x /opt/setup/scripts/debian/*.sh
