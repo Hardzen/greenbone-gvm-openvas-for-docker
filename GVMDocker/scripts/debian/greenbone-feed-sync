@@ -1,0 +1,4 @@
+
+mkdir -p $INSTALL_DIR/greenbone-feed-sync
+python3 -m pip install --root=$INSTALL_DIR/greenbone-feed-sync --no-warn-script-location greenbone-feed-sync
+sudo cp -rv $INSTALL_DIR/greenbone-feed-sync/* /
