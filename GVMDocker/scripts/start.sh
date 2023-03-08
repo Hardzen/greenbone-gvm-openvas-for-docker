@@ -201,9 +201,6 @@ DB=$(su -c "psql -tq --username=postgres --dbname=gvmd --command=\"select value 
 echo "Current GVMd database version is $DB"
 if [ $DB -lt 250 ]; then
 	echo "Extract feeds for 22.4"
-        cd /data
-        echo "Unpacking base feeds data from /usr/lib/var-lib.tar.xz"
-        tar xf /usr/lib/var-lib.tar.xz
 	date
 	echo "Groking the database so migration won't fail"
 	echo "This could take a while. (10-15 minutes). "
