@@ -102,6 +102,20 @@ make DESTDIR="${INSTALL_DIR}" install
 sudo cp -rv ${INSTALL_DIR}/* /
 #rm -rf ${INSTALL_DIR}/*
 
+curl -sSL "https://github.com/greenbone/pg-gvm/archive/refs/tags/v${PGGVM_VERSION}.tar.gz" -o "${SOURCE_DIR}/PGGVM-${PGGVM_VERSION}.tar.gz"
+ls -lahr "${SOURCE_DIR}"
+tar -C "${SOURCE_DIR}" -xvzf "${SOURCE_DIR}/PGGVM-${PGGVM_VERSION}.tar.gz"
+mkdir -p ${BUILD_DIR}/PGGVM && cd ${BUILD_DIR}/PGGVM
+
+cmake ${SOURCE_DIR}/PGGVM-${PGGVM_VERSION} \
+     -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} \
+     -DCMAKE_BUILD_TYPE=Release
+
+make -j$(nproc)
+make DESTDIR=${INSTALL_DIR} install
+sudo cp -rv ${INSTALL_DIR}/* 
+
+
 # Install required dependencies for gvmd
 sudo apt-get install -y --no-install-recommends \
     libglib2.0-dev \
