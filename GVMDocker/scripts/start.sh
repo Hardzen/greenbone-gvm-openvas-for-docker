@@ -272,7 +272,9 @@ if [[ "${AUTO_SYNC_ON_START}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
     /opt/setup/scripts/sync-initial.sh
   fi
 fi
-
+if  ! grep -qis  allow_anonymous /etc/mosquitto/mosquitto.conf; then  
+        echo -e "listener 1883\nallow_anonymous true" >> /etc/mosquitto/mosquitto.conf
+fi
 #############################
 # Remove leftover pid files #
 #############################
@@ -292,6 +294,18 @@ fi
 if [ ! -d /var/run/ospd ]; then
 	mkdir -p /var/run/ospd
 	chown gvm:gvm /var/run/ospd
+fi
+
+echo "Starting Mosquitto daemon for OpenVAS..."
+${SUPVISD} start Mosquitto
+if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
+	${SUPVISD} status mosquitto
+fi
+
+echo "Starting Notus-Scanner for OpenVAS..."
+${SUPVISD} start Notus-Scanner
+if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
+	${SUPVISD} status notus-scanner
 fi
 
 echo "Starting Open Scanner Protocol daemon for OpenVAS..."
