@@ -220,7 +220,16 @@ sudo apt-get purge -y \
     
 
 # Install required dependencies for openvas-smb
-#
+sudo apt-get install -y --no-install-recommends \
+      gcc-mingw-w64 \
+      libgnutls28-dev \
+      libglib2.0-dev \
+      libpopt-dev \
+      libunistring-dev \
+      heimdal-dev \
+      libgssapi3-heimdal \
+      libhdb9-heimdal \
+      perl-base
 if [[ "$(dpkg --print-architecture)" == "amd64" ]]; then
 
 
@@ -405,6 +414,8 @@ sudo apt-get purge --auto-remove -y \
     graphviz-dev \
     cmake \
     libjson-glib-dev
+
+
 sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
 sudo apt-get clean all
 sudo apt-get -yq autoremove
