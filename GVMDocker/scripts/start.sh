@@ -87,6 +87,7 @@ fi
 
 sudo chown -R redis:gvm /run/redis/
 sudo chown -R redis:redis /etc/redis/
+sudo chown mosquitto:mosquitto /run/mosquitto
 
 ${SUPVISD} start redis
 if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
