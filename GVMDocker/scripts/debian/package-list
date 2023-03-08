@@ -22,7 +22,8 @@ libjson-glib-1.0-common
   libldap-2.4-2
   libmicrohttpd12
   libnet1
-libpaho-mqtt-dev
+  libpaho-mqtt1.3
+  libpaho-mqtt-dev
   libpcap0.8
   libpopt0
   libpq5
