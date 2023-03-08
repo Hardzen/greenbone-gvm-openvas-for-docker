@@ -96,6 +96,7 @@ ENV LANG=en_US.UTF-8 \
 RUN ls -lahR /opt/setup/
 RUN /opt/setup/scripts/debian/prepare.sh
 RUN /opt/setup/scripts/debian/main_pkgs.sh
+RUN /opt/setup/scripts/debian/notus_scanner.sh
 
 #COPY report_formats/* /report_formats/
 
