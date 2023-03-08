@@ -430,7 +430,7 @@ sudo apt-get purge --auto-remove -y \
     libjson-glib-dev \
     libical-dev
 
-sudo apt install libpaho-mqtt-dev
+sudo apt install libpaho-mqtt1.3
 sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
 sudo apt-get clean all
 sudo apt-get -yq autoremove
