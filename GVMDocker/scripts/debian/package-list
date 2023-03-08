@@ -6,6 +6,8 @@ gir1.2-json-1.0
   gnupg
   gnutls-bin
   gpgsm
+  rsyslog
+  logrotate
   heimdal-multidev
   libgcrypt20
   libglib2.0
