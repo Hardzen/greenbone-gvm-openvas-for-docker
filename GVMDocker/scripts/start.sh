@@ -219,8 +219,8 @@ else
 	echo "CREATE TABLE IF NOT EXISTS vt_severities (id SERIAL PRIMARY KEY,vt_oid text NOT NULL,type text NOT NULL, origin text,date integer,score double precision,value text);" >>  /opt/setup/dbupdate.sql
 	echo "SELECT create_index ('vt_severities_by_vt_oid','vt_severities', 'vt_oid');" >>   /opt/setup/dbupdate.sql
 	echo "ALTER TABLE vt_severities OWNER TO gvm;" >>  /opt/setup/dbupdate.sql
-	touch /usr/local/var/log/db-restore.log
-	chown postgres /usr/local/var/log/db-restore.log  /opt/setup/dbupdate.sql
+	touch /opt/setup/db-restore.log
+	chown postgres /opt/setup/db-restore.log  /opt/setup/dbupdate.sql
 	su -c "/usr/lib/postgresql/13/bin/psql gvmd <  /opt/setup/dbupdate.sql " postgres >>  /opt/setup/db-restore.log
 	echo "Migrate the database if needed."
 	su -c "gvmd --migrate" gvm 
