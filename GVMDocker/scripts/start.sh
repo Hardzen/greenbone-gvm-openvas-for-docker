@@ -265,6 +265,8 @@ if [ ! -d /var/lib/gvm/CA ] || [ ! -d /var/lib/gvm/private ] || [ ! -d /var/lib/
   find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 fi
 
+sudo /usr/local/bin/greenbone-feed-sync --type notus
+
 # Sync NVTs, CERT data, and SCAP data on container start
 # See this as a super fallback to have at least some data, even if it is then out of date.
 if [[ "${AUTO_SYNC_ON_START}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
