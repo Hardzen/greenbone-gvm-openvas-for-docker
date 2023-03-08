@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1.4
 
 FROM debian:11-slim
+FROM baseimg:latest
 
 ENTRYPOINT [ "/opt/setup/scripts/entrypoint.sh" ]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
