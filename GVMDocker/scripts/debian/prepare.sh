@@ -59,7 +59,13 @@ sudo rm -rf /var/lib/apt/lists/*
 sudo useradd -r -M -d /var/lib/gvm -U -G sudo -s /bin/bash gvm
 sudo usermod -aG tty gvm
 sudo usermod -aG sudo gvm
-
+mkdir -p /run/gvm
+mkdir -p /run/ospd
+mkdir -p /run/gvmd
+mkdir -p /run/redis
+mkdir -p /run/gsad
+mkdir -p /run/mosquitto
+mkdir -p /run/notus-scanner
 echo 'PATH="${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"' | sudo tee /etc/profile.d/path.sh
 
 #9 65.89 Generation complete.
