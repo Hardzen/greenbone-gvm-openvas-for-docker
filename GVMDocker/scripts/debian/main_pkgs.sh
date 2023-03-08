@@ -105,7 +105,7 @@ sudo cp -rv ${INSTALL_DIR}/* /
 curl -sSL "https://github.com/greenbone/pg-gvm/archive/refs/tags/v${PGGVM_VERSION}.tar.gz" -o "${SOURCE_DIR}/pg-gvm-${PGGVM_VERSION}.tar.gz"
 ls -lahr "${SOURCE_DIR}"
 tar -C "${SOURCE_DIR}" -xvzf "${SOURCE_DIR}/pg-gvm-${PGGVM_VERSION}.tar.gz"
-mkdir -p ${BUILD_DIR}/PGGVM && cd ${BUILD_DIR}/pg-gvm-${PGGVM_VERSION}
+mkdir -p ${BUILD_DIR}/pg-gvm-${PGGVM_VERSION} && cd ${BUILD_DIR}/pg-gvm-${PGGVM_VERSION}
 
 cmake ${SOURCE_DIR}/pg-gvm-${PGGVM_VERSION} \
      -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} \
