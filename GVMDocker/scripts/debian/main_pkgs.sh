@@ -431,6 +431,7 @@ sudo apt-get purge --auto-remove -y \
     libical-dev
 
 sudo apt install libpaho-mqtt1.3
+python3 -m pip install psutil
 sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
 sudo apt-get clean all
 sudo apt-get -yq autoremove
