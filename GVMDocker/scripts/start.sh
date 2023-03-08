@@ -50,7 +50,9 @@ mkdir -p /var/lib/gvm/data-objects/gvmd
 mkdir -p /var/lib/gvm/gvmd
 mkdir -p /var/lib/gvm/private
 mkdir -p /var/lib/gvm/scap-data
+mkdir -p /var/lib/notus
 chown gvm:gvm /var/lib/gvm
+chown gvm:gvm /var/lib/notus
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
 # fix for greenbone-nvt-sync
