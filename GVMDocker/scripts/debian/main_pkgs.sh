@@ -102,7 +102,7 @@ make DESTDIR="${INSTALL_DIR}" install
 sudo cp -rv ${INSTALL_DIR}/* /
 #rm -rf ${INSTALL_DIR}/*
 
-curl -sSL "https://github.com/greenbone/pg-gvm/archive/refs/tags/v${PGGVM_VERSION}.tar.gz" -o "${SOURCE_DIR}/PGGVM-${PGGVM_VERSION}.tar.gz"
+curl -sSL "https://github.com/greenbone/pg-gvm/archive/refs/tags/v${PGGVM_VERSION}.tar.gz" -o "${SOURCE_DIR}/pg-gvm-${PGGVM_VERSION}.tar.gz"
 ls -lahr "${SOURCE_DIR}"
 tar -C "${SOURCE_DIR}" -xvzf "${SOURCE_DIR}/pg-gvm-${PGGVM_VERSION}.tar.gz"
 mkdir -p ${BUILD_DIR}/PGGVM && cd ${BUILD_DIR}/pg-gvm
