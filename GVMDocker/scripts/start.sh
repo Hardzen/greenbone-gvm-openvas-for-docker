@@ -303,13 +303,13 @@ if [ ! -d /var/run/ospd ]; then
 fi
 
 echo "Starting Mosquitto daemon for OpenVAS..."
-${SUPVISD} start Mosquitto
+${SUPVISD} start mosquitto
 if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
 	${SUPVISD} status mosquitto
 fi
 
 echo "Starting Notus-Scanner for OpenVAS..."
-${SUPVISD} start Notus-Scanner
+${SUPVISD} start notus-Scanner
 if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
 	${SUPVISD} status notus-scanner
 fi
