@@ -309,7 +309,7 @@ if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
 fi
 
 echo "Starting Notus-Scanner for OpenVAS..."
-${SUPVISD} start notus-Scanner
+${SUPVISD} start notus-scanner
 if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
 	${SUPVISD} status notus-scanner
 fi
