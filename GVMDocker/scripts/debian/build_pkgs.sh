@@ -287,4 +287,44 @@ sudo mkdir -p $OPENVAS_GNUPG_HOME
 sudo cp -r /tmp/openvas-gnupg/* $OPENVAS_GNUPG_HOME/
 sudo chown -R gvm:gvm $OPENVAS_GNUPG_HOME
 
+# SUDO for Scanning
+echo '%gvm ALL = NOPASSWD: /usr/sbin/openvas' | sudo EDITOR='tee -a' visudo
 
+# Install Postgres
+sudo apt-get install -yq --no-install-recommends "postgresql-${POSTGRESQL_VERSION:-all}"
+
+# Remove required dependencies for gvm-libs
+sudo apt-get purge --auto-remove -y \
+    heimdal-dev \
+    libgcrypt20-dev \
+    libglib2.0-dev \
+    libgnutls28-dev \
+    libgpgme-dev \
+    libhiredis-dev \
+    libksba-dev \
+    libldap2-dev \
+    libmicrohttpd-dev \
+    libnet1-dev \
+    libpcap-dev \
+    libpopt-dev \
+    libradcli-dev \
+    libsnmp-dev \
+    libssh-gcrypt-dev \
+    libunistring-dev \
+    libxml2-dev \
+    uuid-dev \
+    python3-dev \
+    build-essential \
+    postgresql-server-dev-${POSTGRESQL_VERSION:-all} \
+    nodejs \
+    yarnpkg \
+    graphviz-dev \
+    cmake \
+    libjson-glib-dev \
+    libical-dev
+
+sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
+sudo apt-get clean all
+sudo apt-get -yq autoremove
+sudo apt-get clean all
+echo "/usr/local/lib" >/etc/ld.so.conf.d/openvas.conf && ldconfig
