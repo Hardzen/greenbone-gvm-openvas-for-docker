@@ -26,6 +26,7 @@ export DB_PASSWORD=${DB_PASSWORD:-none}
 export DB_PASSWORD_FILE=${DB_PASSWORD_FILE:-none}
 export OPT_PDF=${OPT_PDF:-0}
 export SYSTEM_DIST=${SYSTEM_DIST:-debian}
+export PATH=$PATH:/usr/local/sbin
 
 set +e
 # supervisord config: rsyslogd need to be run to get /var/log/mail.* logs
