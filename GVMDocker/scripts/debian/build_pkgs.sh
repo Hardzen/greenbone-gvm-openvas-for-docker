@@ -151,7 +151,15 @@ make DESTDIR=$INSTALL_DIR/gsad install
 sudo cp -rv $INSTALL_DIR/gsad/* /
 
 ##openvas-smb
-
+sudo apt install -y \
+  gcc-mingw-w64 \
+  libgnutls28-dev \
+  libglib2.0-dev \
+  libpopt-dev \
+  libunistring-dev \
+  heimdal-dev \
+  perl-base
+  
 curl -f -L https://github.com/greenbone/openvas-smb/archive/refs/tags/v$OPENVAS_SMB_VERSION.tar.gz -o $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz
 curl -f -L https://github.com/greenbone/openvas-smb/releases/download/v$OPENVAS_SMB_VERSION/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz.asc -o $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz.asc
 gpg --verify $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz.asc $SOURCE_DIR/openvas-smb-$OPENVAS_SMB_VERSION.tar.gz
