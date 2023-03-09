@@ -74,7 +74,7 @@ make DESTDIR=$INSTALL_DIR/gvmd install
 sudo cp -rv $INSTALL_DIR/gvmd/* /
 
 
-pg-gvm
+##pg-gvm
 curl -f -L https://github.com/greenbone/pg-gvm/archive/refs/tags/v$PG_GVM_VERSION.tar.gz -o $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz
 curl -f -L https://github.com/greenbone/pg-gvm/releases/download/v$PG_GVM_VERSION/pg-gvm-$PG_GVM_VERSION.tar.gz.asc -o $SOURCE_DIR/pg-gvm-$PG_GVM_VERSION.tar.gz.asc
 
@@ -333,7 +333,7 @@ sudo apt-get purge --auto-remove -y \
     cmake \
     libjson-glib-dev \
     libical-dev
-
+sudo apt install python3-tomli
 sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
 sudo apt-get clean all
 sudo apt-get -yq autoremove
