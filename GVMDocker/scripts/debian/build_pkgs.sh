@@ -273,7 +273,7 @@ sudo usermod -aG redis gvm
 
 sudo mkdir -p /var/lib/notus
 sudo mkdir -p /run/gvmd
-
+sudo mkdir -p /run/redis-openvas
 sudo chown -R gvm:gvm /var/lib/gvm
 sudo chown -R gvm:gvm /var/lib/openvas
 sudo chown -R gvm:gvm /var/lib/notus
@@ -281,6 +281,7 @@ sudo chown -R gvm:gvm /var/log/gvm
 sudo chown -R gvm:gvm /run/gvmd
 sudo chown -R gvm:gvm /run/notus-scanner/
 sudo chown -R gvm:gvm /var/log/gvm/
+sudo chown -R gvm:gvm /run/redis-openvas
 
 sudo chmod -R g+srw /var/lib/gvm
 sudo chmod -R g+srw /var/lib/openvas
@@ -343,4 +344,5 @@ sudo apt-get purge --auto-remove -yq *-dev *-dev-"${POSTGRESQL_VERSION:-all}"
 sudo apt-get clean all
 sudo apt-get -yq autoremove
 sudo apt-get clean all
+cp /usr/lib/python3.9/site-packages/* /usr/local/lib/python3.9/dist-packages/ -r
 echo "/usr/local/lib" >/etc/ld.so.conf.d/openvas.conf && ldconfig
