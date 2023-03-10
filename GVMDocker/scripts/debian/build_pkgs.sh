@@ -17,6 +17,9 @@ export BUILD_DIR=$HOME/build
 mkdir -p $BUILD_DIR
 export INSTALL_DIR=$HOME/install
 mkdir -p $INSTALL_DIR
+python3 -m pip install tomli
+
+
 curl -f -L https://www.greenbone.net/GBCommunitySigningKey.asc -o /tmp/GBCommunitySigningKey.asc
 gpg --import /tmp/GBCommunitySigningKey.asc
 echo "8AE4BE429B60A59B311C2E739823FAA60ED1E580:6:" > /tmp/ownertrust.txt
