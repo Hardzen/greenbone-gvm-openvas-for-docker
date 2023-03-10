@@ -9,8 +9,8 @@ export GVM_LIBS_VERSION=22.4.4
 export OPENVAS_SCANNER_VERSION=$GVM_VERSION
 export GSA_VERSION=$GVM_VERSION
 
-export PATH=$PATH:/usr/local/sbin
-export INSTALL_PREFIX=/usr/local
+export PATH=$PATH:/usr/sbin
+export INSTALL_PREFIX=/usr
 export SOURCE_DIR=$HOME/source
 mkdir -p $SOURCE_DIR
 export BUILD_DIR=$HOME/build
