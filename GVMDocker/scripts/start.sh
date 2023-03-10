@@ -54,6 +54,7 @@ mkdir -p /var/lib/gvm/scap-data
 mkdir -p /var/lib/notus
 chown gvm:gvm /var/lib/gvm
 chown gvm:gvm /var/lib/notus
+chown gvm:gvm /run/redis-openvas
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
 # fix for greenbone-nvt-sync
