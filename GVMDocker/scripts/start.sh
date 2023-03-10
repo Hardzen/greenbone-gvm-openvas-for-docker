@@ -309,10 +309,12 @@ if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
 fi
 
 echo "Starting Notus-Scanner for OpenVAS..."
-${SUPVISD} start notus-scanner
-if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
-	${SUPVISD} status notus-scanner
-fi
+#${SUPVISD} start notus-scanner
+#if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
+#	${SUPVISD} status notus-scanner
+#fi
+notus-scanner --products-directory /var/lib/notus/products --log-file /var/log/gvm/notus-scanner.log &
+
 
 echo "Starting Open Scanner Protocol daemon for OpenVAS..."
 ${SUPVISD} start ospd-openvas
