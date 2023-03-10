@@ -267,7 +267,7 @@ sudo cp -rv $INSTALL_DIR/gvm-tools/* /
 
 sudo cp $SOURCE_DIR/openvas-scanner-$GVM_VERSION/config/redis-openvas.conf /etc/redis/
 sudo chown redis:redis /etc/redis/redis-openvas.conf
-echo "db_address = /run/redis-openvas/redis.sock" | sudo tee -a /etc/openvas/openvas.conf
+echo "db_address = /run/redis/redis.sock" | sudo tee -a /etc/openvas/openvas.conf
 sudo usermod -aG redis gvm
 
 
