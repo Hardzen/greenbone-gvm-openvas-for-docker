@@ -228,9 +228,9 @@ curl -f -L https://github.com/greenbone/ospd-openvas/releases/download/v$OSPD_OP
 tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz
 cd $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION
 
-mkdir -p $INSTALL_DIR/ospd-openvas
+cd
 
-python3 -m pip install --root=$INSTALL_DIR/ospd-openvas --no-warn-script-location .
+python3 -m pip install --root=$INSTALL_DIR/ospd-openvas --prefix=${INSTALL_PREFIX}  --no-warn-script-location .
 
 sudo cp -rv $INSTALL_DIR/ospd-openvas/* /
 
@@ -246,7 +246,7 @@ cd $SOURCE_DIR/notus-scanner-$NOTUS_VERSION
 
 mkdir -p $INSTALL_DIR/notus-scanner
 
-python3 -m pip install --root=$INSTALL_DIR/notus-scanner --no-warn-script-location .
+python3 -m pip install --root=$INSTALL_DIR/notus-scanner --prefix=${INSTALL_PREFIX} --no-warn-script-location .
 
 sudo cp -rv $INSTALL_DIR/notus-scanner/* /
 
