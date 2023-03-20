@@ -56,6 +56,7 @@ chown gvm:gvm /var/lib/gvm
 chown gvm:gvm /var/lib/notus
 chown gvm:gvm /run/redis-openvas
 chown gvm:gvm /run/gsad/
+mkdir /run/sshd
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
 # fix for greenbone-nvt-sync
