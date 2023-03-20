@@ -56,6 +56,7 @@ chown gvm:gvm /var/lib/gvm
 chown gvm:gvm /var/lib/notus
 chown gvm:gvm /run/redis-openvas
 chown gvm:gvm /run/gsad/
+chown gvm:gvm /run/gsad/ -R
 mkdir /run/sshd
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
