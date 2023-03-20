@@ -228,7 +228,6 @@ curl -f -L https://github.com/greenbone/ospd-openvas/releases/download/v$OSPD_OP
 tar -C $SOURCE_DIR -xvzf $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION.tar.gz
 cd $SOURCE_DIR/ospd-openvas-$OSPD_OPENVAS_VERSION
 
-cd
 
 python3 -m pip install --root=$INSTALL_DIR/ospd-openvas --prefix=${INSTALL_PREFIX}  --no-warn-script-location .
 
