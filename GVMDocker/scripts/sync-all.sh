@@ -44,23 +44,8 @@ fi
 
 set +Eeuo pipefail
 echo "Updating NVTs..."
-#su -c "rsync --compress-level=9 --links --times --omit-dir-times --recursive --partial --quiet rsync://feed.community.greenbone.net:/nvt-feed /var/lib/openvas/plugins" gvm
-exec_as_gvm "greenbone-nvt-sync"
-sleep 5
-
-echo "Updating GVMd data..."
-exec_as_gvm "greenbone-feed-sync --type GVMD_DATA"
-sleep 5
-
-echo "Updating SCAP data..."
-exec_as_gvm "greenbone-feed-sync --type SCAP"
-sleep 5
-
-echo "Updating CERT data..."
-exec_as_gvm "greenbone-feed-sync --type CERT"
-
-echo "UPdate 22.4..."
-exec_as_gvm "/usr/local/bin/greenbone-feed-sync"
+echo "Update 22.4..."
+exec_as_gvm "/usr/bin/greenbone-feed-sync"
 
 sleep 5
 true
