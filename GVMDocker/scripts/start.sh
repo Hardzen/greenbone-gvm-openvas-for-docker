@@ -52,11 +52,13 @@ mkdir -p /var/lib/gvm/gvmd
 mkdir -p /var/lib/gvm/private
 mkdir -p /var/lib/gvm/scap-data
 mkdir -p /var/lib/notus
+mkdir -p /home/gvm/
 chown gvm:gvm /var/lib/gvm
 chown gvm:gvm /var/lib/notus
 chown gvm:gvm /run/redis-openvas
 chown gvm:gvm /run/gsad/
 chown gvm:gvm /var/log/gvm/ -R
+chown gvm:gvm /home/gvm/
 mkdir /run/sshd
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
