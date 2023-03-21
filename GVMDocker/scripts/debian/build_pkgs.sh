@@ -286,11 +286,11 @@ sudo chmod -R g+srw /var/lib/gvm
 sudo chmod -R g+srw /var/lib/openvas
 sudo chmod -R g+srw /var/log/gvm
 
-sudo chown gvm:gvm /usr/local/sbin/gvmd
-sudo chmod 6750 /usr/local/sbin/gvmd
+sudo chown gvm:gvm /usr/sbin/gvmd
+sudo chmod 6750 /usr/sbin/gvmd
 
-sudo chown gvm:gvm /usr/local/bin/greenbone-feed-sync
-sudo chmod 740 /usr/local/bin/greenbone-feed-sync
+sudo chown gvm:gvm /usr/bin/greenbone-feed-sync
+sudo chmod 740 /usr/bin/greenbone-feed-sync
 
 export GNUPGHOME=/tmp/openvas-gnupg
 mkdir -p $GNUPGHOME
@@ -308,6 +308,9 @@ echo '%gvm ALL = NOPASSWD: /usr/sbin/openvas' | sudo EDITOR='tee -a' visudo
 
 # Install Postgres
 sudo apt-get install -yq --no-install-recommends "postgresql-${POSTGRESQL_VERSION:-all}"
+
+## Setcap
+sudo setcap cap_net_raw,cap_net_admin+eip /usr/sbin/openvas
 
 # Remove required dependencies for gvm-libs
 sudo apt-get purge --auto-remove -y \
