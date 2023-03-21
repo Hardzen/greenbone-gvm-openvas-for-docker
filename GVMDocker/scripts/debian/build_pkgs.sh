@@ -18,6 +18,7 @@ mkdir -p $BUILD_DIR
 export INSTALL_DIR=$HOME/install
 mkdir -p $INSTALL_DIR
 python3 -m pip install tomli
+python3 -m pip install impacket
 
 
 curl -f -L https://www.greenbone.net/GBCommunitySigningKey.asc -o /tmp/GBCommunitySigningKey.asc
