@@ -310,6 +310,7 @@ echo '%gvm ALL = NOPASSWD: /usr/sbin/openvas' | sudo EDITOR='tee -a' visudo
 sudo apt-get install -yq --no-install-recommends "postgresql-${POSTGRESQL_VERSION:-all}"
 
 ## Setcap
+sudo apt-get install libcap2-bin
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/sbin/openvas
 
 # Remove required dependencies for gvm-libs
