@@ -12,7 +12,8 @@ ENV gvm_libs_version="v21.4.0" \
     openvas_scanner_version="v21.4.0" \
     openvas_smb="v21.4.0" \
     open_scanner_protocol_daemon="v21.4.0" \
-    ospd_openvas="v21.4.0"
+    ospd_openvas="v21.4.0" \
+    notus_scanner="v22.4.4"
 
 RUN echo "Starting Build..." && mkdir /build
 
@@ -79,12 +80,27 @@ RUN cd /build && \
     #
     # Install Open Scanner Protocol for OpenVAS
     #
-    
+            
 RUN cd /build && \
     wget --no-verbose https://github.com/greenbone/ospd-openvas/archive/$ospd_openvas.tar.gz && \
     tar -zxf $ospd_openvas.tar.gz && \
     cd /build/*/ && \
     python3 setup.py install && \
+    cd /build && \
+    rm -rf *
+    
+    #
+    # Install Notus Scanner
+    #
+    RUN cd /build && \
+    wget --no-verbose https://github.com/greenbone/notus-scanner/archive/refs/tags/$notus_scanner.tar.gz && \
+    tar -zxf notus_scanner.tar.gz && \
+    cd /build/*/ && \
+    mkdir build && \
+    cd build && \
+    cmake -DCMAKE_BUILD_TYPE=Release .. && \
+    make && \
+    make install && \
     cd /build && \
     rm -rf *
     
