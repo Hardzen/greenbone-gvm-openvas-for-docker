@@ -90,7 +90,8 @@ RUN cd /build && \
     python3 -m pip install --no-warn-script-location . && \
     cd /build && \
     rm -rf *
-    
+RUN python3 -m pip install greenbone-feed-sync
+
 RUN echo "/usr/local/lib" > /etc/ld.so.conf.d/openvas.conf && ldconfig && cd / && rm -rf /build
 
 COPY scripts/* /
