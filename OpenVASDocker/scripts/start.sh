@@ -89,6 +89,11 @@ fi
 if [ ! -d /var/run/ospd ]; then
 	mkdir -p /var/run/ospd
 fi
+echo "Starting Mosquitto daemon for OpenVAS..."
+${SUPVISD} start mosquitto
+if [[ "${DEBUG}" =~ ^(yes|y|YES|Y|true|TRUE)$ ]]; then
+	${SUPVISD} status mosquitto
+fi
 
 echo "Starting Open Scanner Protocol daemon for OpenVAS..."
 ${SUPVISD} start ospd-openvas
