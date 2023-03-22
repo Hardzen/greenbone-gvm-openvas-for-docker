@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
-
+export SUPVISD=${SUPVISD:-supervisorctl}
 MASTER_PORT=${MASTER_PORT:-22}
 DEBUG=${DEBUG:-NO}
 
