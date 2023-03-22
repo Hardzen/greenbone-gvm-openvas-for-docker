@@ -59,7 +59,7 @@ chown gvm:gvm /run/redis-openvas
 chown gvm:gvm /run/gsad/
 chown gvm:gvm /var/log/gvm/ -R
 chown gvm:gvm /home/gvm/
-mkdir /run/sshd
+
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
 # fix for greenbone-nvt-sync
@@ -75,6 +75,10 @@ find /var/lib/openvas/ \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {}
 ## This need on HyperVisor for GVM
 #echo 'never' >/sys/kernel/mm/transparent_hugepage/enabled
 #echo 'never' >/sys/kernel/mm/transparent_hugepage/defrag
+
+if [ ! -d "/run/sshd" ]; then
+	mkdir /run/sshd
+fi
 
 if [ ! -d "/run/redis" ]; then
 	mkdir -p /run/redis
