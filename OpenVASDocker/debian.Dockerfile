@@ -87,7 +87,7 @@ RUN cd /build && \
     wget --no-verbose https://github.com/greenbone/notus-scanner/archive/refs/tags/$notus_scanner.tar.gz && \
     tar -zxf $notus_scanner.tar.gz && \
     cd /build/*/ && \
-    python3 -m pip install --no-warn-script-location .
+    python3 -m pip install --no-warn-script-location . \
     cd /build && \
     rm -rf *
     
