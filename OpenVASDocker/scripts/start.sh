@@ -39,6 +39,11 @@ if [ -S /run/redis/redis.sock ]; then
 	rm /run/redis/redis.sock
 fi
 
+mkdir -p /var/lib/notus
+
+chown gvm:gvm /var/lib/notus
+chown mosquitto:mosquitto /run/mosquitto
+
 ${SUPVISD} start redis
 ${SUPVISD} status redis
 
@@ -94,7 +99,8 @@ fi
 while [ ! -S /var/run/ospd/ospd.sock ]; do
 	sleep 1
 done
-
+##Todo move to supervisord
+notus-scanner --products-directory /var/lib/notus/products --log-file /var/log/gvm/notus-scanner.log &
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+ Your OpenVAS Scanner container is now ready to use! +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
