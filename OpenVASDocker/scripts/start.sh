@@ -41,8 +41,16 @@ fi
 
 mkdir -p /var/lib/notus
 
+
 chown gvm:gvm /var/lib/notus
 chown mosquitto:mosquitto /run/mosquitto
+
+if  ! grep -qis  allow_anonymous /etc/mosquitto/mosquitto.conf; then  
+        echo -e "listener 1883\nallow_anonymous true" >> /etc/mosquitto/mosquitto.conf
+fi
+if  ! grep -qis  mosquitto /etc/openvas/openvas.conf; then  
+	echo "mqtt_server_uri = localhost:1883" |  tee -a /etc/openvas/openvas.conf
+fi
 
 ${SUPVISD} start redis
 ${SUPVISD} status redis
