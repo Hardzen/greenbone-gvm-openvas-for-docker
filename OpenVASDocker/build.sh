@@ -34,6 +34,8 @@ cmake
 gnupg-utils
 gnutls-bin
 gpg
+gcc
+g++
 heimdal-multidev
 ike-scan
 libglib2.0-0
