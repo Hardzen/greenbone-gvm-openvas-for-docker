@@ -7,7 +7,7 @@ if [ ! -f "/var/lib/gvm/.firstsync" ]; then
 	mkdir -p /tmp/data
 
 	echo "Extracting internal data TAR..."
-	su gvm -c "greenbone-nvt-sync"
+	su gvm -c "/usr/local/bin/greenbone-nvt-sync"
 
 	chown gvm:gvm -R /tmp/data
 	cp -a /tmp/data/. /var/lib/openvas/plugins/
@@ -24,6 +24,6 @@ fi
 
 while true; do
 	echo "Running Automatic NVT update..."
-	su gvm -c "greenbone-nvt-sync"
+	su gvm -c "/usr/local/bin/greenbone-nvt-sync"
 	sleep 43200
 done
