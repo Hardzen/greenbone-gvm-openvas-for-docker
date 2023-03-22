@@ -97,7 +97,9 @@ RUN echo "/usr/local/lib" > /etc/ld.so.conf.d/openvas.conf && ldconfig && cd / &
 COPY scripts/* /
 
 RUN mkdir -p /run/mosquitto
-
+COPY config /opt/setup/
+COPY scripts /opt/setup/scripts/
+RUN chmod -R +x /opt/setup/scripts/*.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
