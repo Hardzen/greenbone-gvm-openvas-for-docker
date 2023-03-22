@@ -7,7 +7,7 @@ if [ ! -f "/var/lib/gvm/.firstsync" ]; then
 	mkdir -p /tmp/data
 
 	echo "Extracting internal data TAR..."
-	tar --extract --file=/opt/setup/nvt-feed.tar.xz --directory=/tmp/data
+	su gvm -c "greenbone-nvt-sync"
 
 	chown gvm:gvm -R /tmp/data
 	cp -a /tmp/data/. /var/lib/openvas/plugins/
@@ -24,6 +24,6 @@ fi
 
 while true; do
 	echo "Running Automatic NVT update..."
-	su gvm -c "rsync --compress-level=9 --links --times --omit-dir-times --recursive --partial --quiet rsync://feed.community.greenbone.net:/nvt-feed /var/lib/openvas/plugins"
+	su gvm -c "greenbone-nvt-sync"
 	sleep 43200
 done
