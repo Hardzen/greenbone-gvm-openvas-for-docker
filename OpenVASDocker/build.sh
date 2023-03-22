@@ -92,9 +92,9 @@ ldconfig
 
 find / -name '*libopenvas_wmiclient*'
 
-python3 -m pip install --upgrade "ospd_openvas==${OSPD_OPENVAS_VERSION}"
-python3 -m pip install --upgrade "gvm-tools==${GVM_TOOLS_VERSION}"
-python3 -m pip install --upgrade "python-gvm==${PYTHON_GVM_VERSION}"
+python3 -m pip install --upgrade ospd_openvas
+python3 -m pip install --upgrade gvm-tools
+python3 -m pip install --upgrade python-gvm
 
 
 useradd -r -M -d /var/lib/gvm -U -G sudo -s /bin/bash gvm
