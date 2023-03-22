@@ -43,9 +43,10 @@ if [ -S /run/redis/redis.sock ]; then
 fi
 
 mkdir -p /var/lib/notus
-
+mkdir -p /run/notus-scanner/
 
 chown gvm:gvm /var/lib/notus
+chown gvm:gvm /run/notus-scanner/
 chown mosquitto:mosquitto /run/mosquitto
 
 if  ! grep -qis  allow_anonymous /etc/mosquitto/mosquitto.conf; then  
