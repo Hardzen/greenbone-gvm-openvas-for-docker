@@ -114,11 +114,11 @@ chown -R gvm:gvm /run/gvmd
 chown -R gvm:gvm /var/lib/gvm
 chown -R gvm:gvm /var/log/gvm
 
-ls -lahr /opt/context/
+
 
 mkdir -p /opt/setup/scripts
-cp -a /opt/context/scripts/. /opt/setup/scripts/
-wget -O /opt/setup/nvt-feed.tar.xz https://vulndata.deineagentur.biz/nvt-feed.tar.xz
+#cp -a /opt/context/scripts/. /opt/setup/scripts/
+#wget -O /opt/setup/nvt-feed.tar.xz https://vulndata.deineagentur.biz/nvt-feed.tar.xz
 
 echo "gvm ALL = NOPASSWD: /usr/sbin/openvas" > /etc/sudoers.d/gvm
 chmod 0440 /etc/sudoers.d/gvm
