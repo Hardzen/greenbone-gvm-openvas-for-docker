@@ -20,7 +20,7 @@ sed -i '7c\ \ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 echo "deb http://deb.debian.org/debian $(lsb_release -cs)-backports main" | tee /etc/apt/sources.list.d/backports.list
 apt-get update -q
-ls /opt/context/
+
 
 { cat <<EOF
 autossh
