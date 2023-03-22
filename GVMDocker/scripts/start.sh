@@ -60,6 +60,15 @@ chown gvm:gvm /run/gsad/
 chown gvm:gvm /var/log/gvm/ -R
 chown gvm:gvm /home/gvm/
 
+##Copy custom CA Certs
+for file in /var/lib/gvm/certs/*.{pem,crt}; do
+	if [ ! -f /etc/ssl/certs/$(basename $file) ]; then
+		echo $file
+		ln -s $file /etc/ssl/certs/$(basename $file)
+	fi
+done
+c_rehash
+
 find /var/lib/gvm \( ! -user gvm -o ! -group gvm \)  -exec chown gvm:gvm {} +
 
 # fix for greenbone-nvt-sync
