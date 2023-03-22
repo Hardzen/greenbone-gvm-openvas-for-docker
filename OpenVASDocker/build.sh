@@ -131,6 +131,4 @@ chmod 0440 /etc/sudoers.d/gvm
 
 #cp /opt/context/config/supervisord.conf /etc/supervisord.conf
 #cp /opt/context/config/redis-openvas.conf /etc/redis.conf
-apt-get remove -y --purge python3-pip libxml2-dev libxslt-dev gcc python3-dev
-apt-get autoremove -y
 rm -rf /var/lib/apt/lists/*
