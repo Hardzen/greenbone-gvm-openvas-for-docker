@@ -31,6 +31,7 @@ build-essential
 ca-certificates
 curl
 cmake
+pkg-config
 gnupg-utils
 gnutls-bin
 gpg
