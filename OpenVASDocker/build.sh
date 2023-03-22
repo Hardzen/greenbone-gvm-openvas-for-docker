@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
 echo "Acquire::http::Proxy \"${http_proxy}\";" >> /etc/apt/apt.conf.d/30proxy
 echo "APT::Install-Recommends \"0\" ; APT::Install-Suggests \"0\" ;" >> /etc/apt/apt.conf.d/10no-recommend-installs
 apt-get update -q
