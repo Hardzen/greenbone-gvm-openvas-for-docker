@@ -3,7 +3,7 @@ FROM debian:11-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8
-
+ARG SUPVISD=supervisorctl
 COPY build.sh /build.sh
 COPY config/supervisord.conf /etc/supervisord.conf
 COPY config/redis-openvas.conf /etc/redis.conf
