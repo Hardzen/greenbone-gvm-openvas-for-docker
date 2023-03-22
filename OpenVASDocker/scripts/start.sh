@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 export SUPVISD=${SUPVISD:-supervisorctl}
+export SCANNER_ID
+SCANNER_ID=$(cat /var/lib/gvm/.scannerid)
 MASTER_PORT=${MASTER_PORT:-22}
 DEBUG=${DEBUG:-NO}
 /usr/bin/supervisord -n -c /etc/supervisord.conf &
