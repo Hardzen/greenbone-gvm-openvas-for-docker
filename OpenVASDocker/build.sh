@@ -25,6 +25,38 @@ apt-get update -q
 
 
 { cat <<EOF
+libglib2.0-dev
+libgpgme-dev
+libgnutls28-dev
+uuid-dev
+libssh-gcrypt-dev
+libhiredis-dev
+libxml2-dev
+libpcap-dev
+libnet1-dev
+libpaho-mqtt-dev
+libldap2-dev
+libradcli-dev
+gcc-mingw-w64
+libgnutls28-dev
+libglib2.0-dev
+libpopt-dev
+libunistring-dev
+heimdal-dev
+perl-base
+bison
+libglib2.0-dev
+libgnutls28-dev
+libgcrypt20-dev
+libpcap-dev
+libgpgme-dev
+libksba-dev
+rsync
+nmap
+libjson-glib-dev
+libbsd-dev
+python3-impacket
+libsnmp-dev
 autossh
 bison
 build-essential
@@ -34,6 +66,7 @@ cmake
 pkg-config
 gnupg-utils
 gnutls-bin
+glib-2.0
 gpg
 gcc
 g++
