@@ -5,6 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8
 
 COPY build.sh /build.sh
+COPY config/supervisord.conf /etc/supervisord.conf
+COPY config/redis-openvas.conf /etc/redis.conf
 
 RUN bash /build.sh
 
