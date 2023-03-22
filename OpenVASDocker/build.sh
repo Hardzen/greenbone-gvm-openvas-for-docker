@@ -25,6 +25,7 @@ apt-get update -q
 { cat <<EOF
 autossh
 bison
+build-essential
 ca-certificates
 curl
 cmake
