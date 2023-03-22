@@ -96,4 +96,6 @@ RUN echo "/usr/local/lib" > /etc/ld.so.conf.d/openvas.conf && ldconfig && cd / &
 
 COPY scripts/* /
 
+RUN mkdir -p /run/mosquitto
+
 ENTRYPOINT ["/start.sh"]
