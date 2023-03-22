@@ -132,12 +132,12 @@ echo "to the gvmd container, via the /add/scanner.sh"
 echo "After it, you need to restart this container!"
 echo "-------------------------------------------------------"
 touch /var/lib/gvm/.firststart
-#if [ -f /var/lib/gvm/.secondstart ]; then
-#	${SUPVISD} start autossh
-#	if [ "x${DEBUG}" == "xYES" ]; then
-#		${SUPVISD} status autossh
-#	fi
-#fi
+if [ -f /var/lib/gvm/.secondstart ]; then
+	${SUPVISD} start autossh
+	if [ "x${DEBUG}" == "xYES" ]; then
+		${SUPVISD} status autossh
+	fi
+fi
 
 echo "++++++++++++++++"
 echo "+ Tailing logs +"
