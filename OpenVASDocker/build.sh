@@ -106,6 +106,7 @@ chown redis:gvm /run/redis
 mkdir -p /run/gvmd
 mkdir -p /var/lib/gvm
 mkdir -p /var/log/gvm
+mkdir -p /etc/openvas/
 chgrp -R gvm /etc/openvas/
 mkdir -p /var/lib/openvas/plugins
 chown -R gvm:gvm /var/lib/openvas/
