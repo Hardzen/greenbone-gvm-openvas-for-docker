@@ -8,11 +8,11 @@ COPY build.sh /build.sh
 
 RUN bash /build.sh
 
-ENV gvm_libs_version="v21.4.0" \
-    openvas_scanner_version="v21.4.0" \
-    openvas_smb="v21.4.0" \
-    open_scanner_protocol_daemon="v21.4.0" \
-    ospd_openvas="v21.4.0" \
+ENV gvm_libs_version="v22.4.4" \
+    openvas_scanner_version="v22.4.1" \
+    openvas_smb="v22.4.0" \
+    open_scanner_protocol_daemon="v22.4.1" \
+    ospd_openvas="v22.4.6" \
     notus_scanner="v22.4.4"
 
 RUN echo "Starting Build..." && mkdir /build
