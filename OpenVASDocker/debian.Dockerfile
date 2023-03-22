@@ -99,4 +99,5 @@ COPY scripts/* /
 RUN mkdir -p /run/mosquitto
 
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
