@@ -3,6 +3,7 @@ set -Eeuo pipefail
 export SUPVISD=${SUPVISD:-supervisorctl}
 MASTER_PORT=${MASTER_PORT:-22}
 DEBUG=${DEBUG:-NO}
+/usr/bin/supervisord -n -c /etc/supervisord.conf &
 
 if [ -z "${MASTER_ADDRESS}" ]; then
 	echo "ERROR: The environment variable \"MASTER_ADDRESS\" is not set"
