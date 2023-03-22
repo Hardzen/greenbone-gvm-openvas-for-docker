@@ -27,6 +27,7 @@ autossh
 bison
 ca-certificates
 curl
+cmake
 gnupg-utils
 gnutls-bin
 gpg
