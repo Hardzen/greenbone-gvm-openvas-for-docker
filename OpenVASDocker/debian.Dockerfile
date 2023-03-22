@@ -85,7 +85,7 @@ RUN cd /build && \
     #
     RUN cd /build && \
     wget --no-verbose https://github.com/greenbone/notus-scanner/archive/refs/tags/$notus_scanner.tar.gz && \
-    tar -zxf notus_scanner.tar.gz && \
+    tar -zxf $notus_scanner.tar.gz && \
     cd /build/*/ && \
     mkdir build && \
     cd build && \
