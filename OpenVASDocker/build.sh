@@ -65,7 +65,6 @@ libp11-kit0
 libpaho-mqtt-dev
 libpaho-mqtt1.3
 libpcap-dev
-libpcap0.8/bullseye-backports
 libpcre3
 libpopt-dev
 libradcli-dev
