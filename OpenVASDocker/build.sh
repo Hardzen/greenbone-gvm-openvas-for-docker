@@ -48,6 +48,7 @@ libssh-gcrypt-4
 libuuid1
 libxml2
 net-tools
+mosquitto
 nmap
 snmp
 netdiag
@@ -67,6 +68,7 @@ python3-packaging
 python3-paho-mqtt
 python3-paramiko
 python3-pip
+python3-gnupg
 python3-psutil
 python3-redis
 python3-setuptools
