@@ -87,11 +87,7 @@ RUN cd /build && \
     wget --no-verbose https://github.com/greenbone/notus-scanner/archive/refs/tags/$notus_scanner.tar.gz && \
     tar -zxf $notus_scanner.tar.gz && \
     cd /build/*/ && \
-    mkdir build && \
-    cd build && \
-    cmake -DCMAKE_BUILD_TYPE=Release .. && \
-    make && \
-    make install && \
+    python3 -m pip install --no-warn-script-location .
     cd /build && \
     rm -rf *
     
