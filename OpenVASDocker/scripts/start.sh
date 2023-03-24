@@ -5,7 +5,6 @@ export SCANNER_ID
 SCANNER_ID=$(cat /var/lib/gvm/.scannerid)
 MASTER_PORT=${MASTER_PORT:-22}
 DEBUG=${DEBUG:-NO}
-/usr/bin/supervisord -n -c /etc/supervisord.conf &
 
 if [ -z "${MASTER_ADDRESS}" ]; then
 	echo "ERROR: The environment variable \"MASTER_ADDRESS\" is not set"
